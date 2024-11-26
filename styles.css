@@ -4,12 +4,13 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f9; /* Fallback background color */
-    background-image: url('https://example.com/your-image.jpg'); /* Add your background image URL here */
-    background-size: cover; /* Cover the entire screen */
+    background-image: url('https://example.com/your-image.jpg'); /* Background image URL */
+    background-size: cover; /* Ensure the image covers the screen */
     background-position: center; /* Center the background image */
     color: #333; /* Text color */
 }
 
+/* Header Styles */
 header {
     background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent green background */
     color: white;
@@ -17,6 +18,7 @@ header {
     padding: 10px 0;
 }
 
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -30,7 +32,7 @@ table, th, td {
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #4CAF50; /* Green background for table headers */
     color: white;
 }
 
@@ -38,6 +40,7 @@ td {
     background-color: #f9f9f9;
 }
 
+/* Container Styles */
 .container {
     width: 80%;
     margin: 0 auto;
@@ -46,6 +49,7 @@ td {
     border-radius: 8px;
 }
 
+/* Input Field Styles */
 .input-field {
     padding: 10px;
     margin: 10px 0;
@@ -54,6 +58,7 @@ td {
     border: 1px solid #ccc;
 }
 
+/* Button Styles */
 button {
     background-color: #4CAF50;
     color: white;
@@ -61,12 +66,19 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+button:active {
+    background-color: #3e8e41;
+}
+
+/* Actions Styles */
 .actions {
     display: flex;
     justify-content: space-between;
@@ -74,13 +86,23 @@ button:hover {
     gap: 10px;
 }
 
+/* Heading Styles */
 h2 {
     color: #4CAF50; /* Green color for headings */
 }
 
-/* Media Query for responsive design */
+/* Media Query for Responsive Design */
 @media (max-width: 768px) {
     .actions {
         flex-direction: column;
+    }
+
+    .container {
+        width: 90%; /* Increase container width on smaller screens */
+        padding: 15px; /* Adjust padding for small screens */
+    }
+
+    .input-field {
+        width: 100%; /* Ensure input fields take full width on mobile */
     }
 }
