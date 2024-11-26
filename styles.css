@@ -1,0 +1,86 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Fallback background color */
+    background-image: url('https://example.com/your-image.jpg'); /* Add your background image URL here */
+    background-size: cover; /* Cover the entire screen */
+    background-position: center; /* Center the background image */
+    color: #333; /* Text color */
+}
+
+header {
+    background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent green background */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for container */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.input-field {
+    padding: 10px;
+    margin: 10px 0;
+    width: calc(100% - 20px);
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+h2 {
+    color: #4CAF50; /* Green color for headings */
+}
+
+/* Media Query for responsive design */
+@media (max-width: 768px) {
+    .actions {
+        flex-direction: column;
+    }
+}
