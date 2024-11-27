@@ -5,125 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Health Tracker</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 </head>
 <body>
+    <header>
+        <h1>Daily Health and Routine Tracker</h1>
+    </header>
 
-<header>
-    <h1>Health and Routine Tracker</h1>
-</header>
+    <div class="container">
+        <!-- Input Form -->
+        <section class="input-section">
+            <h2>Track Your Daily Activities</h2>
+            <form id="healthForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="wakeup-time">Wakeup Time:</label>
+                    <input type="time" id="wakeup-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="steps">Steps Count:</label>
+                    <input type="number" id="steps" placeholder="e.g., 5000" required>
+                </div>
+                <div class="form-group">
+                    <label for="activity">Physical Activity:</label>
+                    <input type="text" id="activity" placeholder="Enter your activity" required>
+                </div>
+                <div class="form-group">
+                    <label for="water">Water Intake (liters):</label>
+                    <input type="number" id="water" step="0.1" placeholder="e.g., 2.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="sleep">Sleep Time:</label>
+                    <input type="time" id="sleep-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="meals">Meals (Breakfast, Lunch, Dinner):</label>
+                    <input type="text" id="meals" placeholder="e.g., Oats, Salad, Rice" required>
+                </div>
+                <button type="button" onclick="addRecord()">Submit</button>
+            </form>
+        </section>
 
-<div class="container">
-    <h2>Track Daily Activities and Meals</h2>
-
-    <!-- Input form for each individual -->
-    <div class="input-form">
-        <label for="name">Name:</label>
-        <input type="text" id="name" class="input-field" placeholder="Enter Name">
-        
-        <div class="actions">
-            <div>
-                <label for="wakeup-time">Wakeup Time:</label>
-                <input type="time" id="wakeup-time" class="input-field">
-            </div>
-            
-            <div>
-                <label for="activity">Physical Activity:</label>
-                <input type="text" id="activity" class="input-field" placeholder="Enter activity">
-            </div>
-        </div>
-
-        <div class="actions">
-            <div>
-                <label for="lunch">Lunch (What did you eat?):</label>
-                <input type="text" id="lunch" class="input-field" placeholder="Enter lunch details">
-            </div>
-
-            <div>
-                <label for="breakfast">Breakfast (What did you eat?):</label>
-                <input type="text" id="breakfast" class="input-field" placeholder="Enter breakfast details">
-            </div>
-        </div>
-
-        <div class="actions">
-            <div>
-                <label for="evening-snacks">Evening Snacks (What did you eat?):</label>
-                <input type="text" id="evening-snacks" class="input-field" placeholder="Enter evening snacks details">
-            </div>
-
-            <div>
-                <label for="dinner">Dinner (What did you eat?):</label>
-                <input type="text" id="dinner" class="input-field" placeholder="Enter dinner details">
-            </div>
-        </div>
-
-        <div class="actions">
-            <div>
-                <label for="akant-dhyan">Akant Dhyan:</label>
-                <select id="akant-dhyan" class="input-field">
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="samuhik-dhyan">Samuhik Dhyan:</label>
-                <select id="samuhik-dhyan" class="input-field">
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="actions">
-            <div>
-                <label for="unhealthy-food">Unhealthy Food:</label>
-                <input type="text" id="unhealthy-food" class="input-field" placeholder="Enter unhealthy food">
-            </div>
-
-            <div>
-                <label for="healthy-food">Healthy Food:</label>
-                <input type="text" id="healthy-food" class="input-field" placeholder="Enter healthy food">
-            </div>
-        </div>
-
-        <div class="actions">
-            <div>
-                <label for="sleep-time">Sleep Time:</label>
-                <input type="time" id="sleep-time" class="input-field">
-            </div>
-        </div>
-
-        <button onclick="addData()">Submit</button>
+        <!-- Display Data -->
+        <section class="data-section">
+            <h2>Tracked Records</h2>
+            <table id="recordsTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Wakeup Time</th>
+                        <th>Steps</th>
+                        <th>Activity</th>
+                        <th>Water Intake (L)</th>
+                        <th>Sleep Time</th>
+                        <th>Meals</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows will appear here -->
+                </tbody>
+            </table>
+            <button id="exportExcel">Export to Excel</button>
+        </section>
     </div>
 
-    <!-- Display the entered data in a table -->
-    <h2>Data for the Month</h2>
-    <table id="data-table">
-        <thead>
-            <tr>
-                <th>Day</th>
-                <th>Name</th>
-                <th>Wakeup Time</th>
-                <th>Physical Activity</th>
-                <th>Breakfast</th>
-                <th>Lunch</th>
-                <th>Evening Snacks</th>
-                <th>Dinner</th>
-                <th>Akant Dhyan</th>
-                <th>Samuhik Dhyan</th>
-                <th>Unhealthy Food</th>
-                <th>Healthy Food</th>
-                <th>Sleep Time</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Dynamic rows will be inserted here -->
-        </tbody>
-    </table>
-</div>
-
-<script src="script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
