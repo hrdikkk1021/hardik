@@ -1,108 +1,74 @@
-/* General body styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9; /* Fallback background color */
-    background-image: url('https://example.com/your-image.jpg'); /* Background image URL */
-    background-size: cover; /* Ensure the image covers the screen */
-    background-position: center; /* Center the background image */
-    color: #333; /* Text color */
-}
-
-/* Header Styles */
-header {
-    background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent green background */
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-}
-
-/* Table Styles */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #4CAF50; /* Green background for table headers */
-    color: white;
-}
-
-td {
     background-color: #f9f9f9;
+    color: #333;
 }
 
-/* Container Styles */
+header {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
 .container {
-    width: 80%;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for container */
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
-/* Input Field Styles */
-.input-field {
-    padding: 10px;
-    margin: 10px 0;
-    width: calc(100% - 20px);
-    border-radius: 5px;
-    border: 1px solid #ccc;
+h1, h2 {
+    margin: 0 0 20px;
+    text-align: center;
 }
 
-/* Button Styles */
+.input-section, .data-section {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+form input, button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 button {
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
-    padding: 10px 20px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-button:active {
-    background-color: #3e8e41;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-/* Actions Styles */
-.actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
 }
 
-/* Heading Styles */
-h2 {
-    color: #4CAF50; /* Green color for headings */
-}
-
-/* Media Query for Responsive Design */
-@media (max-width: 768px) {
-    .actions {
-        flex-direction: column;
-    }
-
-    .container {
-        width: 90%; /* Increase container width on smaller screens */
-        padding: 15px; /* Adjust padding for small screens */
-    }
-
-    .input-field {
-        width: 100%; /* Ensure input fields take full width on mobile */
-    }
+table th {
+    background-color: #4caf50;
+    color: white;
 }
